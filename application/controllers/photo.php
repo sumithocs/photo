@@ -139,6 +139,31 @@ class Photo extends CI_Controller {
 	}
 	
 	
-	
+	public function get_photo_detail_ajax()
+	{
+		$response = array('status'=>'error','msg'=>'','html'=>'');
+		if ($this->session->userdata('logged_in')) {
+			$photo_id = $this->input->post('photo_id');
+			$photo_detail = $this->photomodel->get_photo_by_id($photo_id);
+			$photo_comments = $this->photomodel->get_photo_comments($photo_id);
+			
+			if ($photo_detail) {		
+				$response ['status'] = 'success';
+				$response ['html'] = $this->load->view('view_photo_detail', array('photo_detail'=>$photo_detail,'photo_comments'=>$photo_comments),true);
+				echo json_encode($response);					
+				exit;
+			} else {
+				$response ['msg'] = 'Error!! Please try again.';
+				echo json_encode($response);
+				exit ();
+			}
+				
+		} else {
+			$response ['status'] = 'Login session expired';
+			echo json_encode($response);
+			exit ();
+		}
+		
+	}
 	
 }

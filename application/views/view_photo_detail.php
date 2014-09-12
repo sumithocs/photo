@@ -3,6 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<title>Photo Booth</title>
+	<link rel="icon" type="image/x-icon" href="<?php echo base_url();?>favicon.png" >
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url();?>assets/css/photo_grid.css">
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url();?>assets/css/welcome.css">
 
@@ -12,46 +13,30 @@
 <div class="wrapper">
 	<div class="container">
 	<div id="body">
-		<h1>Photo Booth</h1>
+		<h1><?php echo $photo_detail->photo_name;?></h1>	
 		
-		<h1>
-		<?php 
-		$logged_in = $this->session->userdata('logged_in');
-		if($logged_in){
-		?>
-		My Photo Booth
-		<?php }else{?>
-		<a href="<?php echo base_url();?>index.php/auth">Login</a>
-		<?php }?>
-		</h1>
-		<?php //print_r($photos);?>
 		<div id="four-columns" class="grid-container" style="display:block;">
-			<ul class="rig columns-4">
-			<?php 
-			if(isset($photos) && !empty($photos)){
-	  			foreach($photos as $photo){
-	  		?>		
+			<ul class="rig columns-2">
+				
 				<li>
-					<img src="<?php echo base_url();?>uploads/images/<?php echo $photo['photo_file'];?>" />
-					<h3><?php echo $photo['photo_name'];?></h3>
-					<p><?php echo $photo['photo_description'];?></p>
-					<?php 
-					if($logged_in){
-					?>
-					<h3><img class="ele-view-comment-box" photo_id="<?php echo $photo['photo_id'];?>" title="Add your comment" width="20px" src="<?php echo base_url();?>assets/icons/comment.png" /></h3>
+					<img src="<?php echo base_url();?>uploads/images/<?php echo $photo_detail->photo_file;?>" />
+					<h3><?php echo $photo_detail->photo_name;?></h3>
+					<p><?php echo $photo_detail->photo_description;?></p>
+					<?php if(isset($photo_comments) && !empty($photo_comments)){
+					foreach($photo_comments as $comment){
+						?>
+					<p class="comment_panel"><?php echo $comment['comment'];?> <b>by <?php echo $comment['username'];?></b></p>
+					<?php }}?>
 					
-					<div id="ele-comment-div<?php echo $photo['photo_id'];?>" style="display:none;" class="submit"><textarea rows="4" id="txt-comment-id<?php echo $photo['photo_id'];?>" placeholder="Comment"></textarea><img class="ele-submit-comment" photo_id="<?php echo $photo['photo_id'];?>" width="150" src="<?php echo base_url();?>assets/icons/submit_comment.png" /></div>
 					
-					<?php }?>
-				</li>
-				<?php }}?>
+				</li>		
 				
 			</ul>
 		</div>
 		
 		<hr />
 		
-		<p class="centered">Footer</p>
+		
 		</div>
 	</div>
 </div>

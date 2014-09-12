@@ -33,6 +33,7 @@ class Photomodel extends CI_Model
 		if($limit){
 			$this->db->limit($limit,$offset);
 		}
+		$this->db->order_by("photo_id", "desc");
 		$query = $this->db->get();
 		$result = $query->result_array();
 		//echo $this->db->last_query();die;

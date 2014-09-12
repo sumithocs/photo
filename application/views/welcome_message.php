@@ -6,6 +6,7 @@
 	<meta http-equiv='expires' content='Fri, 01 Jan 1990 00:00:00 GMT'>
 	<meta http-equiv='pragma' content='no-cache'>
 	<title>Photo Booth</title>
+	<link rel="icon" type="image/x-icon" href="<?php echo base_url();?>favicon.png" >
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url();?>assets/css/photo_grid.css">
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url();?>assets/css/welcome.css">
 

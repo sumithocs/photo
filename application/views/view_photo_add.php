@@ -3,6 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<title>Photo Booth</title>
+	<link rel="icon" type="image/x-icon" href="<?php echo base_url();?>favicon.png" >
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url();?>assets/css/photo_grid.css">
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url();?>assets/css/welcome.css">
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url();?>assets/css/menu.css">

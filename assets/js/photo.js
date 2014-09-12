@@ -14,9 +14,6 @@ jQuery(document).ready(function(){
             } 
         });
 		
-		
-		
-		
 		if(status=='closed'){			
 			$("#ele-comment-div"+photo_id).show();
 			$(this).attr("status","open");
@@ -58,13 +55,33 @@ jQuery(document).ready(function(){
                 $("#imagePreviewDiv").show();
                 $("#imagePreview").attr("src", this.result);
             }
-        }
-        
-        
-        
-       
+        }      
         
     });
+    
+    $('.ele-view-photo-detail').on("click",function(){
+    	
+    	var photo_id = $(this).attr("photo_id");
+		
+		jQuery.ajax({
+            type: "post",
+            dataType: 'json',
+            url: "http://localhost/photo/index.php/photo/get_photo_detail_ajax",
+            data: "photo_id="+photo_id,
+            success: function(data){           	
+    		    jQuery('#view_photo_detail').html(data.html);    		   
+            } 
+        });
+    	
+		$('#view_photo_detail').dialog({
+			 autoResize:true
+		});
+    	
+    	
+    });
+   
+    
+    	
 	
 	
 });
