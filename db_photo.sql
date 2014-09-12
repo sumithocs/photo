@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 12, 2014 at 08:34 AM
+-- Generation Time: Sep 12, 2014 at 02:58 PM
 -- Server version: 5.5.36
 -- PHP Version: 5.4.27
 
@@ -35,23 +35,25 @@ CREATE TABLE IF NOT EXISTS `tbl_photo` (
   `added_date` int(11) NOT NULL,
   `is_delete` int(1) NOT NULL DEFAULT '0',
   PRIMARY KEY (`photo_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=11 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=13 ;
 
 --
 -- Dumping data for table `tbl_photo`
 --
 
 INSERT INTO `tbl_photo` (`photo_id`, `photo_name`, `photo_description`, `photo_file`, `user_id`, `added_date`, `is_delete`) VALUES
-(1, 'name1', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do.', 'pri_001.jpg', 1, 0, 0),
-(2, 'name2', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt.', 'pri_002.jpg', 1, 0, 0),
+(1, 'Second Photo', 'Green leaf with water bubbles', 'pri_001.jpg', 1, 0, 0),
+(2, 'First Photo', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt.', 'pri_002.jpg', 1, 0, 0),
 (3, 'name3', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', 'pri_003.jpg', 2, 0, 0),
 (4, 'ghhkk', '', '5b1bc6123861853958439e0169d28d74.jpg', 2, 1410497516, 0),
-(5, 'Funny baby', '', '6c292499ce5a3d77d673403d938bcaeb.jpg', 2, 1410499265, 0),
+(5, 'Funny baby', '', '6c292499ce5a3d77d673403d938bcaeb.jpg', 2, 1410499265, 1),
 (6, 'Paper art', '', '399dc1aa5ef6b20a57a6a16969b6ba2e.jpg', 2, 1410499310, 0),
-(7, 'Classic Paper Art', '', 'bc5f1f6a118d245ba32abc1f77c80827.jpg', 2, 1410499336, 0),
+(7, 'Classic Paper Arts Edit', 'New Description for Classic Paper Arts ', 'bc5f1f6a118d245ba32abc1f77c80827.jpg', 2, 1410499336, 0),
 (8, 'Alexandra Stan', '', 'f092a99dc98c3d7e57c77fa7900f9c25.jpg', 2, 1410499468, 0),
 (9, 'My Favaorite', 'afa', 'e727a105a375fa8f1362c1d74b57c6cf.jpg', 3, 1410499623, 0),
-(10, 'Good one', 'sdffsd', '7468e36ca2197a6c1ed795acda1e8ee1.jpg', 3, 1410499641, 0);
+(10, 'Good one', 'sdffsd', '7468e36ca2197a6c1ed795acda1e8ee1.jpg', 3, 1410499641, 0),
+(11, 'Run boy run', 'Run boy run', 'af20d123246b8f1423f14ac0a395e167.jpg', 1, 1410522588, 0),
+(12, 'Nike everywhere', 'Tiago has Nike everywhere', '7ad7e2b7736f2ab66a0acff2e90c18b1.jpg', 1, 1410522717, 0);
 
 -- --------------------------------------------------------
 
@@ -67,7 +69,7 @@ CREATE TABLE IF NOT EXISTS `tbl_photo_comment` (
   `added` int(11) NOT NULL,
   `is_delete` int(1) NOT NULL DEFAULT '0',
   PRIMARY KEY (`comment_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=23 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=24 ;
 
 --
 -- Dumping data for table `tbl_photo_comment`
@@ -95,7 +97,8 @@ INSERT INTO `tbl_photo_comment` (`comment_id`, `user_id_fk`, `photo_id_fk`, `com
 (19, 2, 2, 'sdsdfdsfs', 1410450866, 0),
 (20, 1, 2, 'nice capturing', 1410460327, 0),
 (21, 3, 9, 'sdfsdfsdfs', 1410502465, 0),
-(22, 3, 9, 'iopiopiopiopi', 1410502470, 0);
+(22, 3, 9, 'iopiopiopiopi', 1410502470, 0),
+(23, 2, 10, 'new comment', 1410511540, 0);
 
 -- --------------------------------------------------------
 
