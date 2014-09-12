@@ -12,3 +12,4 @@ Simple Photo Application
 [Delete Photo](http://i.imgur.com/KeIMmiu)<br/>
 [Comment Block](http://i.imgur.com/IzGkKL5)<br/>
 [Add New Photo](http://i.imgur.com/oUm61ZS)<br/>
+
