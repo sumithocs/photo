@@ -1,0 +1,29 @@
+table.myclass {
+	font-family: sans-serif;
+	font-size:11px;
+	color:#333333;
+	
+}
+table.myclass th {
+	
+	padding: 8px;	
+	border-color: #a9c6c9;
+}
+table.myclass td {
+	
+	padding: 8px;
+	
+}
+.oddrowcolor{
+	background-color:#d4e3e5;
+}
+.evenrowcolor{
+	background-color:#c3dde0;
+}
+body {
+	font-family: sans-serif;
+	font-size: 13px;
+}
+
+
+
