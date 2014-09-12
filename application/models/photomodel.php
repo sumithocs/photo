@@ -22,6 +22,17 @@ class Photomodel extends CI_Model
 		}
 	}
 	
+	public function edit_photo($photo_id,$data)
+	{
+		$this->db->where('photo_id', $photo_id);
+		if($this->db->update('tbl_photo', $data)){
+				return true;
+		}else{
+			return false;
+		}
+	}
+	
+	
 	public function get_all_photos($conditions=NULL, $limit=NULL, $offset=0)
 	{
 		$this->db->select('*');
@@ -33,6 +44,7 @@ class Photomodel extends CI_Model
 		if($limit){
 			$this->db->limit($limit,$offset);
 		}
+		$this->db->where('is_delete',0);
 		$this->db->order_by("photo_id", "desc");
 		$query = $this->db->get();
 		$result = $query->result_array();
@@ -76,6 +88,26 @@ class Photomodel extends CI_Model
 		}
 		else
 		{
+			return false;
+		}
+	}
+	
+	public function delete_photo($photo_id)
+	{
+		/* $this->db->where('photo_id', $photo_id);	
+		if($this->db->delete('tbl_photo'))
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		} */
+		$data = array('is_delete'=>1);
+		$this->db->where('photo_id', $photo_id);
+		if($this->db->update('tbl_photo', $data)){
+			return true;
+		}else{
 			return false;
 		}
 	}

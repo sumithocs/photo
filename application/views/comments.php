@@ -4,7 +4,7 @@
 		foreach($comments as $comment){
 			
 ?>	
-<p class="comment_panel"><?php echo $comment['comment'];?> <b>by <?php echo $comment['username'];?></b> on <i><?php echo date("Y-m-d",$comment['added']);?></</i></p>
+<p class="comment_panel"><?php echo $comment['comment'];?> <b>by <?php echo $comment['username'];?></b> on <i><?php echo date("Y-m-d",$comment['added']);?></i></p>
 
 <?php } } else{
 

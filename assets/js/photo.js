@@ -42,7 +42,7 @@ jQuery(document).ready(function(){
 	});
 	
 	
-    $("#filePhoto").on("change", function()
+    $("#fPhoto").on("change", function()
     {
         var files = !!this.files ? this.files : [];
         if (!files.length || !window.FileReader) return; // no file selected, or no FileReader support
@@ -81,7 +81,13 @@ jQuery(document).ready(function(){
     });
    
     
-    	
+    $('.ele-delete-photo').on("click",function(){
+    	var photo_id = $(this).attr("photo_id");
+    	var conf = confirm ("Are you sure?? You want to delete this?");
+    	if(conf){
+    		 window.location = "http://localhost/photo/index.php/photo/delete_photo/"+photo_id;
+    	}
+    });	
 	
 	
 });

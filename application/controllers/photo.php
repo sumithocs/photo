@@ -82,9 +82,49 @@ class Photo extends CI_Controller {
 		
 	}
 	
-	public function edit_photo()
+	public function edit_photo($photo_id)
 	{
-		$this->load->view('view_photo_edit',$this->data);
+		$this->data['photo'] =  $this->photomodel->get_photo_by_id($photo_id);
+		
+		if ($this->session->userdata('logged_in')) {	
+			$this->load->view('view_photo_edit',$this->data);
+		}else{
+			
+			$this->session->set_flashdata('msg', 'Please Login first!!');			
+			$this->load->view('login');
+		}
+	}
+	
+	public function save_edit_photo()
+	{	
+		if($this->session->userdata('logged_in')) {
+				
+			$txtPhotoname = $this->input->post('txtPhotoname');
+			$txtDescription = $this->input->post('txtDescription');
+			$photo_id = $this->input->post('photo_id');
+			
+			$data = array(
+					'photo_name'=> $txtPhotoname,
+					'photo_description'=> $txtDescription				
+			);
+				
+			$edit = $this->photomodel->edit_photo($photo_id,$data);
+			if($edit)
+			{
+				$this->session->set_flashdata('msg', 'Edited Successfully!!');
+				redirect('auth/my_booth/');
+			}
+			else
+			{
+				$this->session->set_flashdata('msg', 'Editing failed!!');
+				redirect('/new_photo/');
+			}
+		}else{
+				
+			$this->session->set_flashdata('msg', 'Please Login first!!');
+			$this->load->view('login');
+		}
+	
 	}
 	
 	public function add_photo_comment()
@@ -164,6 +204,22 @@ class Photo extends CI_Controller {
 			exit ();
 		}
 		
+	}
+	
+	
+	public function delete_photo($photo_id)
+	{
+		$delete = $this->photomodel->delete_photo($photo_id);
+		if($delete)
+		{
+			$this->session->set_flashdata('msg', 'Deleted Successfully!!');
+		}
+		else
+		{
+			$this->session->set_flashdata('msg', 'Deleting failed!!');
+		}
+		
+		redirect('auth/my_booth/');
 	}
 	
 }

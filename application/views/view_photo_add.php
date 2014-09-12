@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	<title>Photo Booth</title>
+	<title>Add a New Photo</title>
 	<link rel="icon" type="image/x-icon" href="<?php echo base_url();?>favicon.png" >
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url();?>assets/css/photo_grid.css">
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url();?>assets/css/welcome.css">
@@ -24,6 +24,7 @@
      	<ul class="nav-bar">
      		<li><img width="100px" class="photo" src="<?php echo base_url();?>uploads/user_images/<?php echo $user_name;?>.png" /></li>
           	<li><a>Welcome <?php echo ucwords($user_name);?></a></li>
+          	<li><a href="<?php echo base_url();?>index.php/auth/my_booth">My Booth</a></li>
           	<li><a href="<?php echo base_url();?>index.php/photo/new_photo">Add New Photo</a></li>
           	<li><a href="<?php echo base_url();?>index.php/auth/logout">Logout</a></li>
      	</ul>

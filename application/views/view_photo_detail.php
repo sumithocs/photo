@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	<title>Photo Booth</title>
+	<title>View Photo Detail</title>
 	<link rel="icon" type="image/x-icon" href="<?php echo base_url();?>favicon.png" >
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url();?>assets/css/photo_grid.css">
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url();?>assets/css/welcome.css">
@@ -40,7 +40,5 @@
 		</div>
 	</div>
 </div>
-<script src="<?php echo base_url();?>assets/js/jquery/1.10.2/jquery.min.js" type="text/javascript"></script>
-<script src="<?php echo base_url();?>assets/js/photo.js" type="text/javascript"></script>
 </body>
 </html>

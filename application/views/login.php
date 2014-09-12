@@ -21,7 +21,9 @@
 		<input type="submit" name="btnSubmit" id="btnSubmit" value="Submit" />
 	</div>
 	<div>
+	<span style="font-family:sans-serif;color:red;font-size:12px">
 	<?php if($this->session->flashdata('msg')){ echo $this->session->flashdata('msg');} ?>
+	</span>
 	</div>
 	</form>
 

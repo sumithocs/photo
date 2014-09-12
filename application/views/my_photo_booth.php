@@ -12,7 +12,9 @@
 </head>
 <body>
 <h1><a href="<?php echo base_url();?>">Photo Booth</a></h1>
-
+<h3 style="text-align:center; font-family:sans-serif;color:#FF6600;font-size:14px">
+<?php if($this->session->flashdata('msg')){ echo $this->session->flashdata('msg');} ?>
+</h3>
 <h1>
 		<?php 
 		$logged_in = $this->session->userdata('logged_in');
@@ -22,8 +24,9 @@
 		
 		<nav id="main-menu">
      	<ul class="nav-bar">
-     		<li><img class="photo" src="<?php echo base_url();?>uploads/user_images/<?php echo $user_name;?>.png" /></li>
+     		<li><img width="100px" class="photo" src="<?php echo base_url();?>uploads/user_images/<?php echo $user_name;?>.png" /></li>
           	<li><a>Welcome <?php echo ucwords($user_name);?></a></li>
+          	<li><a>My Booth</a></li>
           	<li><a href="<?php echo base_url();?>index.php/photo/new_photo">Add New Photo</a></li>
           	<li><a href="<?php echo base_url();?>index.php/auth/logout">Logout</a></li>
      	</ul>
@@ -56,9 +59,10 @@
 					if($logged_in){
 					?>
 					<h3>
-						<img class="linked-image ele-view-comment-box" status="closed" photo_id="<?php echo $photo['photo_id'];?>" title="Add your comment" width="20px" src="<?php echo base_url();?>assets/icons/comment.png" />
-						<img class="linked-image ele-view-photo-detail"  photo_id="<?php echo $photo['photo_id'];?>" title="View Photo Detail" width="20px" src="<?php echo base_url();?>assets/icons/view.png" />
-						
+						<img class="linked-image ele-view-comment-box" status="closed" photo_id="<?php echo $photo['photo_id'];?>" title="Comments For This Photo" width="20px" src="<?php echo base_url();?>assets/icons/comment.png" />
+						<img style="margin-left:10px" class="linked-image ele-view-photo-detail"  photo_id="<?php echo $photo['photo_id'];?>" title="View Photo Detail" width="20px" src="<?php echo base_url();?>assets/icons/view.png" />
+						<a href="<?php echo base_url();?>index.php/photo/edit_photo/<?php echo $photo['photo_id'];?>"><img style="margin-left:10px" class="linked-image ele-edit-photo-detail" title="Edit Photo Detail" width="20px" src="<?php echo base_url();?>assets/icons/edit.png" /></a>
+						<a><img style="margin-left:10px" class="linked-image ele-delete-photo"  photo_id="<?php echo $photo['photo_id'];?>" title="Delete This Photo" width="20px" src="<?php echo base_url();?>assets/icons/delete.png" /></a>
 						</h3>
 					
 					<div id="ele-comment-div<?php echo $photo['photo_id'];?>" style="display:none;" class="submit">
